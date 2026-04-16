@@ -1,0 +1,1 @@
+const t="_shell_3g1ay_4",n="_canvas_3g1ay_11",s="_caption_3g1ay_25",a="_captionText_3g1ay_38",_="_hint_3g1ay_44",o="_skeleton_3g1ay_51",c={shell:t,canvas:n,caption:s,captionText:a,hint:_,skeleton:o};export{c as s};
