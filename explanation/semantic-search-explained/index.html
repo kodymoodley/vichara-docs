@@ -91,7 +91,7 @@ svg:where(.astro-c6vsoqas){color:var(--sl-icon-color);font-size:var(--sl-icon-si
 </li>
 </ol>
 <p>The BM25 score for a passage <em>d</em> given a query <em>q</em> is:</p>
-<div class="expressive-code"><link rel="stylesheet" href="/vichara-docs/_astro/ec.tm3va.css"><script type="module" src="/vichara-docs/_astro/ec.8zarh.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">score(d, q) = Σ IDF(t) × (TF(t,d) × (k1+1)) / (TF(t,d) + k1 × (1 - b + b × |d|/avgdl))</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="score(d, q) = Σ IDF(t) × (TF(t,d) × (k1+1)) / (TF(t,d) + k1 × (1 - b + b × |d|/avgdl))"><div></div></button></div></figure></div>
+<div class="expressive-code"><link rel="stylesheet" href="/vichara-docs/_astro/ec.tm3va.css"><script type="module" src="/vichara-docs/_astro/ec.8zarh.js"></script><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">score(d, q) = Σ IDF(t) × (TF(t,d) × (k1+1)) / (TF(t,d) + k1 × (1 - b + b × |d|/avgdl))</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="score(d, q) = Σ IDF(t) × (TF(t,d) × (k1+1)) / (TF(t,d) + k1 × (1 - b + b × |d|/avgdl))"><div></div></button></div></figure></div>
 <p>where:</p>
 <ul>
 <li><code dir="auto">k1 = 1.5</code> — controls TF saturation (higher = slower saturation)</li>
@@ -113,7 +113,7 @@ svg:where(.astro-c6vsoqas){color:var(--sl-icon-color);font-size:var(--sl-icon-si
 <hr>
 <h2 id="proximity-bonus">Proximity bonus</h2>
 <p>A passage where query terms appear close together is usually more relevant than one where the same terms are scattered across 200 words. Vichara applies a <strong>proximity bonus</strong> to passages where two or more query terms appear within an 8-word window:</p>
-<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="plaintext"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">final_score = bm25_score + 0.2 × proximity_bonus</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="final_score = bm25_score + 0.2 × proximity_bonus"><div></div></button></div></figure></div>
+<div class="expressive-code"><figure class="frame not-content"><figcaption class="header"></figcaption><pre data-language="text"><code><div class="ec-line"><div class="code"><span style="--0:#d6deeb;--1:#403f53">final_score = bm25_score + 0.2 × proximity_bonus</span></div></div></code></pre><div class="copy"><button title="Copy to clipboard" data-copied="Copied!" data-code="final_score = bm25_score + 0.2 × proximity_bonus"><div></div></button></div></figure></div>
 <p>The 0.2 weight (lambda) keeps BM25 dominant — the proximity adjustment nudges scores for closely co-occurring terms without overriding the base relevance ranking.</p>
 <hr>
 <h2 id="passage-chunking">Passage chunking</h2>
